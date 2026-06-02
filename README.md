@@ -116,7 +116,65 @@ index.html              # HTML entry point
 - Contact information
 - Social media links
 
-## 🌐 Contact Information
+## � Live Demo
+
+Visit the live application: [EcoMart Demo](http://localhost:8082/)
+
+## 🔧 Troubleshooting
+
+### Port Already in Use
+If port 8080 is already in use, Vite will automatically try the next available port (8081, 8082, etc.)
+
+### Cache Issues
+Clear browser cache (Ctrl + Shift + Delete) or use incognito mode if changes don't appear
+
+### Module Not Found
+```bash
+# Clear node_modules and reinstall
+rm -r node_modules
+npm install
+```
+
+### Build Errors
+```bash
+# Clear Vite cache
+rm -r node_modules/.vite
+npm run dev
+```
+
+## 🌐 Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📚 Environment Variables
+
+No environment variables required for basic setup. All configuration is in `vite.config.ts` and `tailwind.config.ts`.
+
+## 🚧 Future Enhancements
+
+- [ ] Shopping cart functionality
+- [ ] User authentication (login/signup)
+- [ ] Product filtering & search
+- [ ] Wishlist persistence
+- [ ] Order management
+- [ ] Payment integration (Stripe/PayPal)
+- [ ] Admin dashboard
+- [ ] User reviews & ratings
+- [ ] Email notifications
+- [ ] Multi-language support
+
+## 📖 Learn More
+
+- [React Documentation](https://react.dev)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Vite Guide](https://vitejs.dev/guide/)
+- [shadcn/ui](https://ui.shadcn.com/)
+
+## �🌐 Contact Information
 
 📧 **Email**: abhinandanvyas@ecomart.com  
 📱 **Phone**: +91 8600000000  
