@@ -112,9 +112,6 @@ index.html              # HTML entry point
 - Contact information
 - Social media links
 
-## 🎬 Live Demo
-
-Visit the live application: [EcoMart Demo](http://localhost:8082/)
 
 ## 🔧 Troubleshooting
 
