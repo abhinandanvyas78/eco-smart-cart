@@ -2,10 +2,14 @@ import { useState } from 'react'
 import { Menu, X, Leaf, ShoppingCart, User, Search } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import { CartModal } from './CartModal'
+import { SearchModal } from './SearchModal'
+import { UserMenu } from './UserMenu'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const { cartCount } = useCart()
 
   return (
@@ -37,7 +41,10 @@ export function Navbar() {
 
             {/* Icons */}
             <div className="flex items-center gap-4">
-              <button className="p-2 hover:bg-gray-100 rounded-lg transition">
+              <button 
+                onClick={() => setIsSearchOpen(true)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition"
+              >
                 <Search className="w-5 h-5 text-gray-600" />
               </button>
               <button 
@@ -51,7 +58,10 @@ export function Navbar() {
                   </span>
                 )}
               </button>
-              <button className="p-2 hover:bg-gray-100 rounded-lg transition hidden md:block">
+              <button 
+                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition hidden md:block"
+              >
                 <User className="w-5 h-5 text-gray-600" />
               </button>
 
@@ -87,6 +97,12 @@ export function Navbar() {
 
       {/* Cart Modal */}
       <CartModal isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+
+      {/* Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+
+      {/* User Menu */}
+      <UserMenu isOpen={isUserMenuOpen} onClose={() => setIsUserMenuOpen(false)} />
     </>
   )
 }
