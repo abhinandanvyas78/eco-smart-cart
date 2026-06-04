@@ -4,12 +4,16 @@ import { useCart } from '../context/CartContext'
 import { CartModal } from './CartModal'
 import { SearchModal } from './SearchModal'
 import { UserMenu } from './UserMenu'
+import { LoginModal } from './LoginModal'
+import { SignUpModal } from './SignUpModal'
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false)
   const { cartCount } = useCart()
 
   return (
@@ -102,7 +106,32 @@ export function Navbar() {
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
       {/* User Menu */}
-      <UserMenu isOpen={isUserMenuOpen} onClose={() => setIsUserMenuOpen(false)} />
+      <UserMenu 
+        isOpen={isUserMenuOpen} 
+        onClose={() => setIsUserMenuOpen(false)}
+        onOpenLogin={() => setIsLoginOpen(true)}
+        onOpenSignUp={() => setIsSignUpOpen(true)}
+      />
+
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)}
+        onSwitchToSignUp={() => {
+          setIsLoginOpen(false)
+          setIsSignUpOpen(true)
+        }}
+      />
+
+      {/* Sign Up Modal */}
+      <SignUpModal 
+        isOpen={isSignUpOpen} 
+        onClose={() => setIsSignUpOpen(false)}
+        onSwitchToLogin={() => {
+          setIsSignUpOpen(false)
+          setIsLoginOpen(true)
+        }}
+      />
     </>
   )
 }

@@ -4,9 +4,11 @@ import { useState } from 'react'
 interface UserMenuProps {
   isOpen: boolean
   onClose: () => void
+  onOpenSignUp: () => void
+  onOpenLogin: () => void
 }
 
-export function UserMenu({ isOpen, onClose }: UserMenuProps) {
+export function UserMenu({ isOpen, onClose, onOpenSignUp, onOpenLogin }: UserMenuProps) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   if (!isOpen) return null
@@ -56,12 +58,21 @@ export function UserMenu({ isOpen, onClose }: UserMenuProps) {
         ) : (
           <div className="p-4 space-y-3">
             <button
-              onClick={() => setIsLoggedIn(true)}
+              onClick={() => {
+                onOpenLogin()
+                onClose()
+              }}
               className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition font-semibold"
             >
               Login
             </button>
-            <button className="w-full border border-green-600 text-green-600 py-2 rounded-lg hover:bg-green-50 transition font-semibold">
+            <button 
+              onClick={() => {
+                onOpenSignUp()
+                onClose()
+              }}
+              className="w-full border border-green-600 text-green-600 py-2 rounded-lg hover:bg-green-50 transition font-semibold"
+            >
               Sign Up
             </button>
             <p className="text-xs text-gray-500 text-center">
